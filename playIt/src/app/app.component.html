@@ -1,17 +1,17 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
 
-  <input type="text" [(ngModel)]="title" >
-  {{title}}
+  <input type="text" [(ngModel)]="message.title" >
+  {{message.title}}
 
   <textarea name="" id="" cols="30" rows="10" [(ngModel)]="message"></textarea>
-  {{message}}
+  {{message.messageText}}
+
+  <button>Send</button>
 
 
   <section>
-    <div class="massage">
-      div.message
-    </div>
+    <app-massage *ngFor="let message of messages"></app-massage>
   </section>
 
 </div>
