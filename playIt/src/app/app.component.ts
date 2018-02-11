@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {MessagesService} from './services/messages.service';
 
 @Component({
   selector: 'app-root',
@@ -12,5 +13,8 @@ export class AppComponent {
     messageText: '',
   };
 
+  constructor(private messagesService: MessagesService) {
+
+  }
 
 }
