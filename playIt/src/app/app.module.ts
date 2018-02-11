@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
+import {MessagesService} from './services/messages.service';
 
 
 
@@ -15,7 +16,7 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [MessagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
