@@ -3,7 +3,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {CatsService} from './services/cats.service';
-
+import {FormsModule} from "@angular/forms";
+import {ButtonModule} from 'primeng/button';
+import {DataTableModule} from 'primeng/datatable';
 
 
 @NgModule({
@@ -12,7 +14,10 @@ import {CatsService} from './services/cats.service';
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ButtonModule,
+    DataTableModule
   ],
   providers: [CatsService],
   bootstrap: [AppComponent]

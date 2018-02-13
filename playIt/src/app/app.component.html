@@ -4,25 +4,66 @@
     <div class="ui-g-12 ui-md-4">
       <div class="ui-inputgroup">
         <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
-        <input type="text" pInputText placeholder="Cat name">
+        <input type="text" pInputText placeholder="Cat name" [(ngModel)]="catName">
       </div>
     </div>
 
     <div class="ui-g-12 ui-md-4">
       <div class="ui-inputgroup">
         <span class="ui-inputgroup-addon">weight</span>
-        <input type="text" pInputText placeholder="weight">
+        <input type="text" pInputText placeholder="weight"[(ngModel)]="catWeight">
         <span class="ui-inputgroup-addon">kg</span>
       </div>
     </div>
     <div class="ui-g-12 ui-md-4">
       <div class="ui-inputgroup">
         <span class="ui-inputgroup-addon">color</span>
-        <input type="text" pInputText placeholder="color">
+        <input type="text" pInputText placeholder="color" [(ngModel)]="catColor">
       </div>
     </div>
   </div>
-  <button pButton type="button"  class="ui-button-success">Add Cat</button>
+  <button pButton type="button" class="ui-button-success" (click)="addCat()">Add Cat</button>
+  <div>
+    <div class="catTable" *ngIf="isSelected">
+      <p-dataTable [value]="allCats">
+        <p-column field="name" header="Name"></p-column>
+        <p-column field="color" header="Color"></p-column>
+        <p-column field="weight" header="Weight"></p-column>
+      </p-dataTable>
+    </div>
+    <div class="catCard" *ngFor="let cat of allCats">
+      <div class="img"></div>
+      <ul class="catInfo">Cat Info
+        <li class="catInfo_item" >Name:
+          <span class="item_data" [ngClass]="{'hide': selected}">{{cat.name}}</span>
+          <input class="catInput"
+                 [ngClass]="{'hide': hideInput}"
+                 type="text"
+                 value="{{cat.name}}" [(ngModel)]="editingCat.name">
+        </li>
+        <li class="catInfo_item">Color:
+          <span class="item_data" [ngClass]="{'hide': selected}">{{cat.color}}</span>
+          <input class="catInput"
+                 [ngClass]="{'hide': hideInput}"
+                 type="text"
+                 value="{{cat.color}}" [(ngModel)]="editingCat.color">
+        </li>
+        <li class="catInfo_item">Weight:
+          <span class="item_data" [ngClass]="{'hide': selected}">{{cat.weight}}</span>
+          <input class="catInput" [ngClass]="{'hide': hideInput}"
+                 type="text"
+                 value="{{cat.weight}}" [(ngModel)]="editingCat.weight">
+        </li>
+      </ul>
+      <button class="editedBtn"
+              [ngClass]="{'hide': hideInput}"
+              (click)="saveEditedCat(cat.id)">
+        Save
+      </button>
+      <button class="deleteBtn" (click)="btnDeleteClick(cat.id)">Close</button>
+      <button class="editBtn" (click)="btnEditClick(cat)">Edit</button>
+    </div>
+  </div>
 </div>
 
 

@@ -6,12 +6,13 @@ export class CatsService {
   private id: number = 0;
   constructor() { }
   getCats() {
-    return this.allCats;
+    return [...this.allCats];
   }
-  addCat(name, color, weight, id) {
-    this.allCats.push({name: name, color: color, weight: weight, id: id});
+  addCat(name, color, weight) {
+    this.allCats.push({name: name, color: color, weight: weight, id: this.id});
     this.id++;
   }
+
   editCat(id, newCat) {
     for(let i = 0; i < this.allCats.length; i++) {
       if(this.allCats[i].id === id) {
@@ -19,6 +20,7 @@ export class CatsService {
         break;
       }
     }
+    // console.log(newCat);
   }
   deleteCat(id) {
     for(let i = 0; i < this.allCats.length; i++) {
