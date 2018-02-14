@@ -4,7 +4,22 @@ import { Injectable } from '@angular/core';
 export class CatsService {
   private allCats: any[] = [];
   private id: number = 0;
-  constructor() { }
+  testData = [
+    {name: 'Gloria', sex: 'female', age: 26},
+    {name: 'Alla', sex: 'female', age: 28},
+    {name: 'Barbara', sex: 'female', age: 41},
+    {name: 'John', sex: 'male', age: 18},
+    {name: 'Ben', sex: 'male', age: 22},
+    {name: 'Mike', sex: 'male', age: 35}
+  ];
+  constructor() {
+    for(let i = 0; i < this.testData.length; i++) {
+      if(1) {
+        console.log(this.testData[i]);
+      }
+    }
+    this.generateCats(3);
+  }
   getCats() {
     return [...this.allCats];
   }
@@ -28,6 +43,13 @@ export class CatsService {
         this.allCats.splice(i, 1);
         break;
       }
+    }
+  }
+  generateCats(catsNumber) {
+    catsNumber = catsNumber ? catsNumber : 1;
+    let words = ['Rock', 'Paper', 'Scissor', 'Tampon', 'Chipa', 'Kyzya'];
+    for(let i = 0; i < catsNumber; i++) {
+      this.addCat(words[Math.floor(Math.random()*words.length)],words[Math.floor(Math.random()*words.length)],words[Math.floor(Math.random()*words.length)]);
     }
   }
 }
