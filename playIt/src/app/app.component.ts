@@ -13,9 +13,11 @@ export class AppComponent implements OnInit {
   catWeight:string ="";
   allCats: any[] = [];
   isSelected:boolean = false;
-  selected: boolean = false;
-  hideInput: boolean = true;
-  editingCat = {name: '', color: '', weight: ''};
+  // selected: boolean = false;
+  // selected;
+  // hideInput;
+  // editingCat;
+  // editingCat = {name: '', color: '', weight: ''};
 
 
 
@@ -33,27 +35,31 @@ export class AppComponent implements OnInit {
     this.catsService.addCat(this.catName, this.catColor, this.catWeight);
     this.allCats = this.catsService.getCats();
     this.isSelected = true;
-    console.log(this.catName, this.catColor, this.catWeight);
+    // console.log(this.catName, this.catColor, this.catWeight);
     this.catName = "";
     this.catColor = "";
     this.catWeight = "";
   }
-  btnEditClick(cat) {
-    this.selected = true;
-    this.hideInput = false;
-    this.editingCat = {...cat};
-
-  }
-  saveEditedCat(id) {
-    this.hideInput = true;
-    this.selected = false;
-    this.catsService.editCat( id , this.editingCat);
-    this.allCats = this.catsService.getCats();
-  }
+  // btnEditClick(cat) {
+  //   this.selected = true;
+  //   this.hideInput = false;
+  //   this.editingCat = {...cat};
+  //
+  // }
+  // saveEditedCat(id) {
+  //   this.hideInput = true;
+  //   this.selected = false;
+  //   this.catsService.editCat( id , this.editingCat);
+  //   this.allCats = this.catsService.getCats();
+  // }
   btnDeleteClick(id){
     this.catsService.deleteCat(id);
     this.allCats = this.catsService.getCats();
   }
+  // btnCancelEdit () {
+  //   this.hideInput = true;
+  //   this.selected = false;
+  // }
 
 
 }
