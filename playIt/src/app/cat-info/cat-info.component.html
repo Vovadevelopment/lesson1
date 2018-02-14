@@ -1,0 +1,34 @@
+<div class="catCard">
+  <div class="img"></div>
+  <ul class="catInfo">Cat Info
+    <li class="catInfo_item" >Name:
+      <span class="item_data" [ngClass]="{'hide': selected}">{{cat.name}}</span>
+      <input class="catInput"
+             [ngClass]="{'hide': hideInput}"
+             type="text"
+             value="{{cat.name}}" [(ngModel)]="editingCat.name">
+    </li>
+    <li class="catInfo_item">Color:
+      <span class="item_data" [ngClass]="{'hide': selected}">{{cat.color}}</span>
+      <input class="catInput"
+             [ngClass]="{'hide': hideInput}"
+             type="text"
+             value="{{cat.color}}" [(ngModel)]="editingCat.color">
+    </li>
+    <li class="catInfo_item">Weight:
+      <span class="item_data" [ngClass]="{'hide': selected}">{{cat.weight}}</span>
+      <input class="catInput" [ngClass]="{'hide': hideInput}"
+             type="text"
+             value="{{cat.weight}}" [(ngModel)]="editingCat.weight">
+    </li>
+  </ul>
+  <button class="editedBtn"
+          [ngClass]="{'hide': hideInput}"
+          (click)="saveEditedCat(cat.id)">
+    Save
+  </button>
+  <button class="cancel" [ngClass]="{'hide': hideInput}" (click)="btnCancelEdit()">Cancel</button>
+  <button class="deleteBtn" (click)="btnDeleteClick(cat.id)">Close</button>
+  <button class="editBtn" (click)="btnEditClick(cat)">Edit</button>
+</div>
+
