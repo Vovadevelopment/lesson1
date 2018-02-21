@@ -7,12 +7,14 @@ import {FormsModule} from "@angular/forms";
 import {ButtonModule} from 'primeng/button';
 import {DataTableModule} from 'primeng/datatable';
 import { CatInfoComponent } from './cat-info/cat-info.component';
+import { ArticleComponent } from './article/article.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CatInfoComponent
+    CatInfoComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,65 @@
+@mixin e($element) {
+  &_#{$element} {
+    @content;
+  }
+}
+@mixin m($modifier) {
+  &__#{$modifier} {
+    @content;
+  }
+}
+:host {
+  display: block;
+}
+.article {
+  padding: 50px;
+  background: antiquewhite;
+  color: #3a3a3a;
+  font-size: 0;
+  @media screen and (max-width: 1000px) {
+    padding: 10px;
+  }
+  @include e('photo') {
+    display: inline-block;
+    vertical-align: top;
+    width: 30%;
+    @media screen and (max-width: 800px) {
+      width: 100%;
+      text-align: center;
+    }
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      @media screen and (max-width: 800px) {
+        width: 100%;
+      }
+    }
+  }
+  @include e('description') {
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 50px;
+    width: 70%;
+    font-size: 14px;
+    @media screen and (max-width: 800px) {
+      display: block;
+      width: 100%;
+      padding-left: 0;
+    }
+    @media screen and (max-width: 1000px) {
+      padding-left: 10px;
+    }
+  }
+  @include e('title') {
+    font-size: 21px;
+    margin: 0;
+    @media screen and (max-width: 800px) {
+      font-size: 24px;
+      text-align: center;
+      margin-top: 20px;
+    }
+  }
+  @include e('info') {
+    line-height: 18px ;
+  }
+}

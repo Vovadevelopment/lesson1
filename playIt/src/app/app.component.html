@@ -11,7 +11,7 @@
     <div class="ui-g-12 ui-md-4">
       <div class="ui-inputgroup">
         <span class="ui-inputgroup-addon">weight</span>
-        <input type="text" pInputText placeholder="weight"[(ngModel)]="catWeight">
+        <input type="text" pInputText placeholder="weight" [(ngModel)]="catWeight">
         <span class="ui-inputgroup-addon">kg</span>
       </div>
     </div>
@@ -22,61 +22,59 @@
       </div>
     </div>
   </div>
-  <button pButton type="button" class="ui-button-success"  (click)="addCat()">Add Cat</button>
-    <div class="row">
-      <div class="col-xs-4">
-        <p-dataTable [value]="allCats">
-          <p-column field="name" header="Name"></p-column>
-          <p-column field="color" header="Color"></p-column>
-          <p-column field="weight" header="Weight"></p-column>
-        </p-dataTable>
-      </div>
-      <div class="col-xs-6">
-        <div *ngIf="isSelected">
-          <app-cat-info [cat]="cat" (onCatDelete)="btnDeleteClick($event)" *ngFor="let cat of allCats"></app-cat-info>
-        </div>
+  <button pButton type="button" class="ui-button-success" (click)="addCat()">Add Cat</button>
+  <div class="row">
+    <div class="col-xs-4">
+      <p-dataTable [value]="allCats">
+        <p-column field="name" header="Name"></p-column>
+        <p-column field="color" header="Color"></p-column>
+        <p-column field="weight" header="Weight"></p-column>
+      </p-dataTable>
+    </div>
+    <div class="col-xs-6">
+      <div *ngIf="isSelected">
+        <app-cat-info [cat]="cat" (onCatDelete)="btnDeleteClick($event)" *ngFor="let cat of allCats"></app-cat-info>
       </div>
     </div>
+  </div>
+  <app-article></app-article>
 
-
-
-
-    <!--<div class="catCard" *ngFor="let cat of allCats">-->
-      <!--<div class="img"></div>-->
-      <!--<ul class="catInfo">Cat Info-->
-        <!--<li class="catInfo_item" >Name:-->
-          <!--<span class="item_data" [ngClass]="{'hide': selected}">{{cat.name}}</span>-->
-          <!--<input class="catInput"-->
-                 <!--[ngClass]="{'hide': hideInput}"-->
-                 <!--type="text"-->
-                 <!--value="{{cat.name}}" [(ngModel)]="editingCat.name">-->
-        <!--</li>-->
-        <!--<li class="catInfo_item">Color:-->
-          <!--<span class="item_data" [ngClass]="{'hide': selected}">{{cat.color}}</span>-->
-          <!--<input class="catInput"-->
-                 <!--[ngClass]="{'hide': hideInput}"-->
-                 <!--type="text"-->
-                 <!--value="{{cat.color}}" [(ngModel)]="editingCat.color">-->
-        <!--</li>-->
-        <!--<li class="catInfo_item">Weight:-->
-          <!--<span class="item_data" [ngClass]="{'hide': selected}">{{cat.weight}}</span>-->
-          <!--<input class="catInput" [ngClass]="{'hide': hideInput}"-->
-                 <!--type="text"-->
-                 <!--value="{{cat.weight}}" [(ngModel)]="editingCat.weight">-->
-        <!--</li>-->
-      <!--</ul>-->
-      <!--<button class="editedBtn"-->
-              <!--[ngClass]="{'hide': hideInput}"-->
-              <!--(click)="saveEditedCat(cat.id)">-->
-        <!--Save-->
-      <!--</button>-->
-      <!--<button class="cancel" [ngClass]="{'hide': hideInput}" (click)="btnCancelEdit()" >Cancel</button>-->
-      <!--<button class="deleteBtn" (click)="btnDeleteClick(cat.id)">Close</button>-->
-      <!--<button class="editBtn" (click)="btnEditClick(cat)">Edit</button>-->
-    <!--</div>-->
+  <!--<div class="catCard" *ngFor="let cat of allCats">-->
+  <!--<div class="img"></div>-->
+  <!--<ul class="catInfo">Cat Info-->
+  <!--<li class="catInfo_item" >Name:-->
+  <!--<span class="item_data" [ngClass]="{'hide': selected}">{{cat.name}}</span>-->
+  <!--<input class="catInput"-->
+  <!--[ngClass]="{'hide': hideInput}"-->
+  <!--type="text"-->
+  <!--value="{{cat.name}}" [(ngModel)]="editingCat.name">-->
+  <!--</li>-->
+  <!--<li class="catInfo_item">Color:-->
+  <!--<span class="item_data" [ngClass]="{'hide': selected}">{{cat.color}}</span>-->
+  <!--<input class="catInput"-->
+  <!--[ngClass]="{'hide': hideInput}"-->
+  <!--type="text"-->
+  <!--value="{{cat.color}}" [(ngModel)]="editingCat.color">-->
+  <!--</li>-->
+  <!--<li class="catInfo_item">Weight:-->
+  <!--<span class="item_data" [ngClass]="{'hide': selected}">{{cat.weight}}</span>-->
+  <!--<input class="catInput" [ngClass]="{'hide': hideInput}"-->
+  <!--type="text"-->
+  <!--value="{{cat.weight}}" [(ngModel)]="editingCat.weight">-->
+  <!--</li>-->
+  <!--</ul>-->
+  <!--<button class="editedBtn"-->
+  <!--[ngClass]="{'hide': hideInput}"-->
+  <!--(click)="saveEditedCat(cat.id)">-->
+  <!--Save-->
+  <!--</button>-->
+  <!--<button class="cancel" [ngClass]="{'hide': hideInput}" (click)="btnCancelEdit()" >Cancel</button>-->
+  <!--<button class="deleteBtn" (click)="btnDeleteClick(cat.id)">Close</button>-->
+  <!--<button class="editBtn" (click)="btnEditClick(cat)">Edit</button>-->
+  <!--</div>-->
   <!--</div>-->
   <!--<div *ngIf="isSelected">-->
-    <!--<app-cat-info [cat]="cat" (onCatDelete)="btnDeleteClick($event)" *ngFor="let cat of allCats"></app-cat-info>-->
+  <!--<app-cat-info [cat]="cat" (onCatDelete)="btnDeleteClick($event)" *ngFor="let cat of allCats"></app-cat-info>-->
   <!--</div>-->
 </div>
 
