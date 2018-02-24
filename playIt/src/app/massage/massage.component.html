@@ -1,5 +1,16 @@
-<div class="message">
+<div *ngIf="!isEditing" class="message">
   <h1 class="message_title">{{message.title}}</h1>
-  <div  class="message_text">{{message.message}}</div>
-  <span  class="message_time">{{message.time}}</span>
+  <div class="message_text">{{message.message}}</div>
+  <div class="message_time">{{message.time | datex: 'YYYY-MM-DD  HH:mm'}}</div>
+  <button (click)="startEditMessage()">EDIT</button>
+</div>
+
+<div *ngIf="isEditing" class="message">
+
+  <input type="text" [(ngModel)]="editingMessage.title">
+
+  <textarea [(ngModel)]="editingMessage.message"></textarea>
+
+  <button (click)="editMessage()">Save</button>
+  <button (click)="cancelEdit()">Cancel</button>
 </div>
